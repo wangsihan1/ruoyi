@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.student.mapper.StudentMapper">
+
+
+    <resultMap type="Student" id="StudentResult">
+        <result property="id"    column="id"    />
+        <result property="sname"    column="sname"    />
+        <result property="gender"    column="gender"    />
+        <result property="age"    column="age"    />
+        <result property="schoolCard"    column="school_card"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectStudentVo">
+        select id, sname, age, gender, remarks, create_time from student
+    </sql>
+
+    <select id="selectAllStudent" parameterType="Student" resultMap="StudentResult">
+        <include refid="selectStudentVo"/>
+
+    </select>
+
+
+
+</mapper>
